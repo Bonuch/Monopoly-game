@@ -1,0 +1,42 @@
+@mixin notify-item {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px 22px 5px 15px;
+  .content-wrap {
+    flex: 1;
+    //display: flex;
+    //flex-wrap: wrap;
+    //align-items: center;
+    //padding: 10px 0;
+      padding-left: 10px;
+    .title {
+      width: 100%;
+      font-size: 9px;
+      color: var(--color-white-50);
+      padding-bottom: 5px;
+    }
+    .content {
+      width: 100%;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .a-btn {
+      margin-top: 10px;
+        width: 100px;
+        background-color: #24202C;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 10px;
+        text-decoration: none;
+    }
+  }
+  .notify-img {
+    flex: 0 1 70px;
+    background-color: #fff;
+    width: 70px;
+    height: 70px;
+  }
+}

@@ -1,0 +1,174 @@
+<template lang="pug">
+    div
+        header.header
+            .header__top
+        #page-content.moder
+            .main-content
+                b-tabs(pills)
+                    b-tab(title="Реплеи/бан игрока")
+                        user-profile-wrapper
+                    b-tab(title="Жалобы")
+                        .appeals__wrapper
+                            //- profile-widget
+                            .appeals__select
+                                span Жалобы:
+                                button(@click="fetchAppeals") Обновить
+                                | {{ statusMessage }}
+
+                                .appeals__list
+                                    select(v-model="selectedAppeal" size="15")
+                                        option(disabled value="") Выберите жалобу
+                                        option(v-for="appeal in appeals" v-if="appeal" v-bind:value="appeal") Жалоба # {{ appeal.id }}
+                            div(v-if="selectedAppeal").appeals__info
+                                .appeals__info_left
+                                    span.appeals__info__head Игра # {{ selectedAppeal.game_id }}
+                                    span.appeals__info__head От игрока # {{ selectedAppeal.from_user_id }}
+                                    span.appeals__info__head На игрока # {{ selectedAppeal.to_user_id }}
+                                    span.appeals__info__head Ход # {{ selectedAppeal.turn }}
+                                .appeals__info_right
+                                    span.appeals__info__head Текст жалобы:
+                                    | {{ selectedAppeal.message }}
+</template>
+
+<script>
+    import axios from '@/helpers/axios-instance';
+    import UserProfileWrapper from '@/components/moder/UserProfileWrapper'
+
+    export default {
+        name: "ModeratorApp",
+        data() {
+            return {
+                appeals: [],
+                selectedAppeal: null,
+                statusMessage: '',
+            };
+        },
+        mounted() {},
+        components: {
+            UserProfileWrapper
+        },
+        methods: {
+            fetchAppeals() {
+                axios.get("fetch_appeals")
+                    .then(response => {
+                        if (response.data.appeals) {
+                            this.appeals = response.data.appeals;
+                        }
+                    })
+                    .catch(() => {
+                        this.statusMessage = 'Не удалось запросить жалобы с сервера';
+                    });
+            }
+        }
+    };
+</script>
+
+<style>
+    @charset "UTF-8";
+    @font-face {
+        font-family: "SFUI";
+        src: url("/fonts/SFUIDisplay-Bold.woff") format("woff"),
+        url("/fonts/SFUIDisplay-Bold.eot") format("eot"),
+        url("/fonts/SFUIDisplay-Bold.ttf") format("ttf");
+        font-weight: normal;
+        font-style: normal;
+        font-display: block;
+    }
+
+    :root {
+        --base-fonts: "SFUI", Verdana, Helvetica, sans-serif;
+        --base-font-size: 17px;
+        --base-line-height: 18px;
+        --container-width: 960px;
+        --base-time: 300ms;
+    }
+
+    body{
+        font-family: Arial, Verdana, Helvetica, sans-serif;
+        font-family: var(--base-fonts);
+        font-size: 17px;
+        font-size: var(--base-font-size);
+        color: #5c6367;
+        color: var(--color-base-gray);
+        line-height: 18px;
+        line-height: var(--base-line-height);
+        text-rendering: optimizeLegibility;
+        -webkit-text-decoration-skip: objects;
+        text-decoration-skip: objects;
+        -webkit-text-size-adjust: 100%;
+        -webkit-font-smoothing: antialiased;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    #page-content.moder{
+        padding: 30px;
+    }
+
+    .appeals__select{
+        margin-right: 20px;
+    }
+
+    .appeals__wrapper{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+        align-items: baseline;
+    }
+
+    .appeals__select{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .appeals__select span{
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+    }
+
+    .appeals__select button{
+        margin-bottom: 10px;
+    }
+
+    .appeals__info{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+    .appeals__info_left{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        margin-right: 50px;
+    }
+
+    .appeals__info_right{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .appeals__info__head{
+        margin: 0 0 20px 0;
+    }
+
+</style>

@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "SFUI";
+    src: url("../fonts/SFUIDisplay-Bold.woff") format("woff"),
+    url("../fonts/SFUIDisplay-Bold.eot") format("eot"),
+    url("../fonts/SFUIDisplay-Bold.ttf") format("ttf");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+:root {
+    --color-background: #202124;
+    --color-background-2: #323639;
+    --color-background-3: #24202C;
+    --color-background-social: #1B1B1B;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-white-50: rgba(255, 255, 255, .5);
+    --color-white-60: rgba(255, 255, 255, .6);
+    --color-player-inactive: #888383;
+    --color-base-blue: #0087d1;
+    --color-second-blue: #00a0ff;
+    --color-gray-light: #E9E9E9;
+    --color-gray-medium: #D4D4D4;
+    --color-gray-dark: #73797D;
+    --color-base-gray: #5c6367;
+    --color-gray-100: #E9E9E9;
+    --color-gray-200: #CECECE;
+    --color-green-500: #48BB78;
+    --color-green-1: #15E82A;
+    --color-green-2: #32EB66;
+    --color-green-3: #91E075;
+    --color-danger: #E53E3E;
+    --color-purple: #C094E7;
+    --color-purple-light: #8D56C3;
+    --color-purple-medium: #6A1ED5;
+    --purple-medium: #6A1ED5;
+    --purple-dark: #381B66;
+    --color-blue-light: #3081E1;
+    --color-blue-medium: #415AE1;
+    --color-blue-dark: #3418E4;
+    --color-black-bg: #262c2f;
+    --color-red-dark: #D22828;
+    --color-red-light: #FF5151;
+    --color-orange: #EC8D3F;
+    --color-yellow-dark: #FED700; // #EEDC3E
+    --color-yellow-light: #F2FF40; // #EEDC3E
+    --base-fonts: "SFUI", Verdana, Helvetica, sans-serif;
+    --base-font-size: 13px;
+    --base-line-height: 14px;
+    --container-width: 960px;
+    --base-time: 300ms;
+}
+
+::-webkit-input-placeholder {
+    color: inherit;
+    opacity: 1;
+    -webkit-transition: opacity 300ms;
+    -o-transition: opacity 300ms;
+    transition: opacity 300ms;
+}
+
+::-moz-placeholder {
+    color: inherit;
+    opacity: 1;
+    -webkit-transition: opacity 300ms;
+    -o-transition: opacity 300ms;
+    transition: opacity 300ms;
+}
+
+:-moz-placeholder {
+    color: inherit;
+    opacity: 1;
+    -webkit-transition: opacity 300ms;
+    -o-transition: opacity 300ms;
+    transition: opacity 300ms;
+}
+
+:-ms-input-placeholder {
+    color: inherit;
+    opacity: 1;
+    -webkit-transition: opacity 300ms;
+    -o-transition: opacity 300ms;
+    transition: opacity 300ms;
+}
+
+:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+:focus::-moz-placeholder {
+    opacity: 0;
+}
+
+:focus:-moz-placeholder {
+    opacity: 0;
+}
+
+:focus:-ms-input-placeholder {
+    opacity: 0;
+}
+
+.ps .ps__rail-x:hover, .ps .ps__rail-y:hover, .ps .ps__rail-x:focus, .ps .ps__rail-y:focus, .ps .ps__rail-x.ps--clicking, .ps .ps__rail-y.ps--clicking {
+    background: #323639;
+}
+
+body {
+    font-family: "SFUI";
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 320px;
+    min-height: 100%;
+    text-rendering: optimizeLegibility;
+    text-decoration-skip: objects;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.main {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+}

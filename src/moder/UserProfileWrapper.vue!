@@ -1,0 +1,76 @@
+<template lang="pug">
+  div
+    b-form(@submit.prevent="onSearch" inline)
+      label(for="search_value")
+        | Введите id пользователя&nbsp;
+      b-form-input(type="text" name="search_value" v-model="searchValue" id="search_value")
+      | &nbsp;
+      b-button(type="submit") Найти
+      | &nbsp;
+      b-button(@click="eraseSearchResults") Очистить
+    br
+    b-row
+      b-col(cols="3")
+        div(v-show="selectedUser.is_banned")
+          ban-display-widget(:user="selectedUser")
+          br
+          br
+        ban-widget(:admin-app="this" v-show="selectedUser.id")
+      b-col(cols="3")
+        div(v-show="selectedUser.is_muted")
+          mute-display-widget(:user="selectedUser")
+          br
+          br
+        mute-widget(:admin-app="this" v-show="selectedUser.id")
+    hr
+    user-replays(:admin-app="this" ref="replays")
+</template>
+
+<script>
+    import axios from '@/helpers/axios-instance';
+import UserReplays from '../admin/components/components/UserReplays.vue';
+import BanWidget from '../admin/components/components/BanWidget.vue'
+import MuteWidget from '../admin/components/components/MuteWidget.vue'
+import BanDisplayWidget from '../admin/components/components/BanDisplayWidget.vue';
+import MuteDisplayWidget from '../admin/components/components/MuteDisplayWidget.vue';
+
+export default {
+  data() {
+    return {
+      selectedUser: {},
+      searchValue: null,
+    };
+  },
+  name: 'UserProfileWrapper',
+  components: {
+    UserReplays, BanWidget, MuteWidget, BanDisplayWidget, MuteDisplayWidget
+  },
+  methods: {
+    eraseSearchResults() {
+      this.selectedUser = {};
+      this.$refs.replays.clearReplays();
+    },
+    onSearch() {
+      this.results = [];
+
+      let value = this.searchValue;
+
+      axios.get("find_users", {
+        params: { by: 'id', value: value }
+      })
+        .then(response => {
+          if (response.data) {
+            this.selectedUser = response.data[0];
+          }
+
+          this.$refs.replays.refreshReplaysData();
+        })
+        .catch(() => {});
+    },
+    refreshSelectedUserInfo() {
+      this.onSearch();
+    },
+  }
+}
+
+</script>

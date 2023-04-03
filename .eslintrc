@@ -1,0 +1,28 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:node/recommended",
+        "plugin:vue/recommended"
+    ],
+    "plugins": [
+        "jest"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        // Only ESLint 6.2.0 and later support ES2020.
+        "ecmaVersion": 6
+    },
+    "env": {
+        "es6": true,
+        "node": true,
+        "jest/globals": true
+    },
+    "rules": {
+        // override/add rules settings here, such as:
+        // 'vue/no-unused-vars': 'error'
+        "node/no-unsupported-features/es-syntax": "off",
+        "vue/singleline-html-element-content-newline": 0
+    }
+}

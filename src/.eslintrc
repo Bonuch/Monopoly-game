@@ -1,0 +1,30 @@
+{
+    "extends": [
+        "plugin:vue/recommended"
+    ],
+    //    "parser": "babel-eslint",
+    "parserOptions": {
+        "parser": "babel-eslint",
+        "ecmaVersion": 8,
+        "sourceType": "module"
+    },
+    "rules": {
+        "vue/singleline-html-element-content-newline": 0,
+        "vue/script-indent": [
+            "warn",
+            4,
+            {
+                "baseIndent": 0
+            }
+        ],
+        "vue/html-indent": [
+            "warn",
+            4,
+            {
+                "baseIndent": 1
+            }
+        ],
+        "vue/html-quotes": [ "warn", "double", { "avoidEscape": false } ]
+    },
+    "root": true
+}

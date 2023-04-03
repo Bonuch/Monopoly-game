@@ -1,0 +1,9 @@
+{
+    "NOTIFY": {
+        "Приглашение принято": "The invitation was accepted",
+        "Приглашение отклонено": "The invitation was declined",
+        "Скрыть уведомления": "Hide notifications",
+        "Показать уведомления": "Show notifications",
+        "Удалить уведомления": "Delete notifications"
+    }
+}

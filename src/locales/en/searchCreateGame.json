@@ -1,0 +1,28 @@
+{
+    "SEARCH_CREATE_GAME": {
+        "Кастомные игры": "Custom games",
+        "Сейчас никто не играет": "No one is playing now",
+        "Количество игроков": "Number of players",
+        "Любое": "Any",
+        "Идет поиск": "Search in progress",
+        "Найти игру!": "Find a game!",
+        "Стандартная игра": "Standart game",
+        "Новая игра": "New game",
+        "Старт игры": "Start the game",
+        "Открыть профайл": "Open the profile",
+        "Покинуть игру": "Leave the game",
+        "Мутация недели": "Mutation of the week",
+        "Только по приглашению": "Invitation-only",
+        "Дополнительные правила": "Additional rules",
+        "Создать": "Create",
+        "Доступно только Премиум аккаунтам": "Available only for Premium accounts",
+        "Ожидание остальных участников": "Waiting for other participants",
+        "Эта игра уже началась, переходим в игру": "This game has already started, redirecting ...",
+        "Участники": "Participants",
+        "Исключить": "Exclude",
+        "Свободно": "Available",
+        "Покинуть": "Exit",
+        "Правила": "Rules",
+        "Перейти": "Next"
+    }
+}

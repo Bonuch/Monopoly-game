@@ -1,0 +1,44 @@
+
+.wrapper {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-height: 100%;
+}
+.wrapper::before {
+  content: "mobile";
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+img {
+  max-width: 100%;
+  height:auto;
+
+}
+textarea {
+  resize:none;
+
+}
+* {
+  font-weight:normal;
+  font-family: 'SF UI Display', 'sans-serif';
+
+}
+button {
+  outline: none !important;
+
+}
+.visually-hidden {
+  position:absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space:nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow:hidden;
+
+}
